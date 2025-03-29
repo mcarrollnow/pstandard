@@ -1,0 +1,42 @@
+// Function to handle all calculation updates
+function updateFormCalculations() {
+  // Get references to all form fields
+  const qtyField = document.getElementById('QTY1');
+  const costField = document.getElementById('COST1');
+  const totalField = document.getElementById('TOTAL1');
+  
+  // Get current values
+  let qty = parseFloat(qtyField.value) || 0;
+  let cost = parseFloat(costField.value) || 0;
+  let total = parseFloat(totalField.value) || 0;
+  
+  // Determine which field was last modified
+  const lastModified = this.id || '';
+  
+  // Update based on which field was changed
+  if (lastModified === 'QTY1' || lastModified === 'COST1') {
+    // If quantity or cost was changed, recalculate total
+    total = qty * cost;
+    totalField.value = total.toFixed(2);
+  } else if (lastModified === 'TOTAL1' && qty !== 0) {
+    // If total was changed and quantity isn't zero, recalculate cost
+    cost = total / qty;
+    costField.value = cost.toFixed(2);
+  } else if (lastModified === 'TOTAL1' && cost !== 0) {
+    // If total was changed and cost isn't zero, recalculate quantity
+    qty = total / cost;
+    qtyField.value = qty.toFixed(2);
+  }
+}
+
+// Add event listeners to all fields
+document.addEventListener('DOMContentLoaded', function() {
+  const fields = ['QTY1', 'COST1', 'TOTAL1'];
+  
+  fields.forEach(function(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+      field.addEventListener('input', updateFormCalculations);
+    }
+  });
+});
