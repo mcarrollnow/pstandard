@@ -1,3 +1,4 @@
+<script>
 // Function to handle all calculation updates
 function updateFormCalculations() {
   // Get references to all form fields
@@ -40,3 +41,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+</script>
