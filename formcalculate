@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let total = parseFloat(totalField.value) || 0;
     
     // Determine which field was changed and update others accordingly
-    if (changedFieldId === 'QTY1') {
+    if (changedFieldId === '117438392') {
       // If quantity was changed, update total
       total = qty * cost;
       totalField.value = total.toFixed(2);
     } 
-    else if (changedFieldId === 'COST1') {
+    else if (changedFieldId === '117438395') {
       // If cost was changed, update total
       total = qty * cost;
       totalField.value = total.toFixed(2);
     } 
-    else if (changedFieldId === 'TOTAL1') {
+    else if (changedFieldId === '117438396') {
       // If total was changed, update cost (if qty is not zero)
       if (qty !== 0) {
         cost = total / qty;
@@ -40,19 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add event listeners to all fields
   if (qtyField) {
     qtyField.addEventListener('input', function() {
-      updateCalculations('QTY1');
+      updateCalculations('117438392');
     });
   }
   
   if (costField) {
     costField.addEventListener('input', function() {
-      updateCalculations('COST1');
+      updateCalculations('117438395');
     });
   }
   
   if (totalField) {
     totalField.addEventListener('input', function() {
-      updateCalculations('TOTAL1');
+      updateCalculations('117438396');
     });
   }
 });
