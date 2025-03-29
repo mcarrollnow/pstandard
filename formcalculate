@@ -1,9 +1,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Get references to all form fields
-  const qtyField = document.getElementById('QTY1');
-  const costField = document.getElementById('COST1');
-  const totalField = document.getElementById('TOTAL1');
+  const qtyField = document.getElementById('117438392');
+  const costField = document.getElementById('117438395');
+  const totalField = document.getElementById('117438396');
   
   // Function to handle calculations
   function updateCalculations(changedFieldId) {
